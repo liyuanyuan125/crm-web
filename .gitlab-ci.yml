@@ -1,0 +1,78 @@
+stages:
+  - build
+  - package
+  - deploy-dev
+  - deploy-prd
+
+variables:
+  SERVICE_NAME: iadp-sale-crm-web
+
+
+build-dev:
+  image: $REGISTRY_ADDRESS/devops/nodejs/build
+  stage: build
+  only:
+    - develop
+  script:
+    - yarn config get registry && yarn && yarn lint && yarn build-dev
+  artifacts:
+    paths:
+      - dist
+      - Dockerfile
+    expire_in: 2 hrs
+  tags:
+    - nodejs
+
+build-prd:
+  image: $REGISTRY_ADDRESS/devops/nodejs/build
+  stage: build
+  only:
+    - master
+  script:
+    - yarn config get registry && yarn && yarn lint && yarn build
+  artifacts:
+    paths:
+      - dist
+      - Dockerfile
+    expire_in: 2 hrs
+  tags:
+    - nodejs
+
+package:
+  image: $REGISTRY_ADDRESS/devops/docker/package
+  stage: package
+  variables:
+    GIT_STRATEGY: none
+  only:
+    - master
+    - develop
+  script:
+    - package
+  tags:
+    - docker
+
+.deploy_job: &deploy_job
+  image: $REGISTRY_ADDRESS/devops/docker/deploy
+  variables:
+    GIT_STRATEGY: none
+  dependencies: []
+  script: deploy -service $SERVICE_NAME -template web -vars host=sale-crm-wap-web.aiads-dev.com,port=80
+  tags:
+    - docker
+
+deploy-dev:
+  <<: *deploy_job
+  only:
+    - develop
+  stage: deploy-dev
+  environment: aiads-dev
+
+
+deploy-prd:
+  <<: *deploy_job
+  only:
+    - master
+  stage: deploy-prd
+  environment: aiads-prd
+  retry: 2
+  when: manual
