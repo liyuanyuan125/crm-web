@@ -1,11 +1,50 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import routes from './router'
+import Router, { RouteConfig } from 'vue-router'
+import asyncRoutes from './modules/asyncRoute'
 
 Vue.use(Router)
 
+export const constantRoutes: RouteConfig[] = [
+  {
+    path: '/',
+    name: 'Customer',
+    components: {
+      default: () => import(/* webpackChunkName: "Customer" */ '@/views/customer/index.vue'),
+      tabbar: () => import(/* webpackChunkName: "Tabbar" */ '@/components/baseTabbar')
+    }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "login" */ '../views/login/index.vue'),
+    meta: {
+      icon: '',
+      title: 'login'
+    }
+  },
+  {
+    path: '*',
+    name: '404',
+    component: () => import(/* webpackChunkName: "404" */ '@/views/error-page/404.vue'),
+    meta: {
+      icon: '',
+      title: '404'
+    }
+  },
+  {
+    path: '/401',
+    name: '401',
+    component: () => import(/* webpackChunkName: "401" */ '@/views/error-page/401.vue'),
+    meta: {
+      icon: '',
+      title: '401'
+    }
+  },
+ ...asyncRoutes
+]
+
 const router = new Router({
-  routes,
+  routes: constantRoutes,
   mode: 'history'
 })
 

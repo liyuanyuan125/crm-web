@@ -26,10 +26,12 @@
     }
 
     async userLogin() {
-        await UserModule.Login({
-            username: 'bingbing',
-            password: '123456'
-        })
+        // await UserModule.Login({
+        //     username: 'bingbing',
+        //     password: '123456'
+        // })
+        // this.$router.push('/')
+        localStorage.setItem('accesstoken', '123123')
         this.$router.push('/')
     }
 
