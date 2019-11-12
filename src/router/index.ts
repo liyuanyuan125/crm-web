@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router, { RouteConfig } from 'vue-router'
 import asyncRoutes from './modules/asyncRoute'
+import { BarModule } from '@/store/modules/bar'
 
 Vue.use(Router)
 
@@ -53,6 +54,9 @@ const LOGIN_PAGE_NAME = 'login'
 
 // 跳转之前
 router.beforeEach((to, from, next) => {
+  if (to && to.meta && to.meta.barindex) {
+    BarModule.setBar(to.meta.barindex)
+  }
   const token = localStorage.getItem('accesstoken')
   if (!token && to.name !== LOGIN_PAGE_NAME) {
     // 未登录且要跳转的页面不是登录页
