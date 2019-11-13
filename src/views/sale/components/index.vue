@@ -18,7 +18,7 @@
       }
 
       activated() {
-        //
+        ///
       }
 
       mounted() {
