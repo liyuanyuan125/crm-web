@@ -16,9 +16,9 @@ module.exports = {
   css: {
     loaderOptions: {
       less: {
-        // globalVars: {
-        //   'hack': `true; @import "${path.join(__dirname, './src/assets/style/index.less')}";`
-        // },
+        globalVars: {
+          'hack': `true; @import "${path.join(__dirname, './src/assets/style/index.less')}";`
+        },
         modifyVars: {
           'hack': `true; @import "${path.join(__dirname, './src/assets/style/vant-theme.less')}";`
         }
