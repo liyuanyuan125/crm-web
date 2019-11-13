@@ -16,9 +16,10 @@
           {{ message }}
         </div>
         <div class="text-404__info">
-          Please check that the URL you entered is correct, or click the button below to return to the homepage.
+          {{ desc }}
         </div>
         <button
+          v-if="!componentError"
           @click="goBack"
           class="text-404__return-home"
         >回首页</button>
@@ -28,13 +29,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({
   name: 'Page404'
 })
 export default class extends Vue {
-  private message = '404 Page Not Found'
+  @Prop ({required: false, default: false}) componentError!: boolean
+
+  private message = this.componentError ? '异步组件加载失败' : '404 Page Not Found'
+
+  private desc = this.componentError ? '请刷新页面尝试。' : 'Please check that the URL you entered is correct, or click the button below to return to the homepage.'
 
   goBack() {
     this.$router.push('/')

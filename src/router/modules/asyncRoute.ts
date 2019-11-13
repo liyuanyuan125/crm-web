@@ -42,7 +42,7 @@ const asyncRoutes: RouteConfig[] = [
       barindex: 3,
       title: 'my'
     }
-  },
+  }
 ]
 
 export default asyncRoutes

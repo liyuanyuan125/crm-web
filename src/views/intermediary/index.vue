@@ -41,7 +41,6 @@
 </script>
 
 <style lang='less'>
-@import "~@/assets/style/index.less";
 
 .intermediary-wrap {
   width: 100%;

@@ -4,10 +4,14 @@ import { login } from '@/service/api/login'
 
 export interface UserState {
     token: string,
-    userName: string,
-    roles: string[],
+    userName: string
 
 }
+
+// 参数一：是否使用动态加载，只有用到当前module才会加载
+// 参数二：挂载store目标
+// 参数三：是否开启命名空间
+// 参数四：module名称
 @Module({dynamic: true, store, namespaced: true, name: 'user'})
 export default class User extends VuexModule {
     token = ''

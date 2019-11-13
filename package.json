@@ -39,7 +39,6 @@
     "husky": "^3.0.9",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
-    "postcss-px2rem": "^0.3.0",
     "postcss-pxtorem": "^4.0.1",
     "ts-import-plugin": "^1.5.5",
     "typescript": "~3.5.3",

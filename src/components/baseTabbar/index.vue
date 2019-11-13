@@ -5,7 +5,7 @@
           <van-tabbar-item
               v-for='(item, index) in tabbars'
               :key='index'
-              :to='{path: item.name, params: {barindex: index}}'
+              :to='item.name'
               :icon='item.icon'
           >
           {{item.title}}

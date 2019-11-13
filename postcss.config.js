@@ -5,6 +5,5 @@ module.exports = {
       rootValue: 37.5,
       propList: ['*']
     })
-    // require('postcss-px2rem')({ remUnit: 75 })
   ]
 }
