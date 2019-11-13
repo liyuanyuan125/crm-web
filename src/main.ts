@@ -4,7 +4,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { Toast, Dialog } from 'vant'
-import 'vant/lib/index.less'
 
 Vue.config.productionTip = false
 

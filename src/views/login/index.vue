@@ -56,7 +56,6 @@
 </script>
 
 <style lang='less'>
-@import "~@/assets/style/index.less";
 
 .login-wrap {
   width: 100%;

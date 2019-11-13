@@ -4,8 +4,7 @@ import { login } from '@/service/api/login'
 
 export interface UserState {
     token: string,
-    userName: string,
-    roles: string[],
+    userName: string
 
 }
 
