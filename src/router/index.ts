@@ -11,7 +11,7 @@ export const constantRoutes: RouteConfig[] = [
     path: '/',
     name: 'customer',
     components: {
-      default: () => import(/* webpackChunkName: "customer" */ '@/views/customer/index.vue'),
+      default: asyncLoader('customer/index.vue'),
       tabbar: () => import(/* webpackChunkName: "Tabbar" */ '@/components/baseTabbar')
     }
   },
