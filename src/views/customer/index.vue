@@ -1,7 +1,7 @@
 <template>
   <van-tabs color="#1989fa" v-model='active' animated>
     <van-tab v-for='item in manageList' :key='item' :title='item'>
-    {{item}}
+    {{item}}内容
   </van-tab>
 </van-tabs>
 </template>
@@ -44,6 +44,7 @@
 </script>
 
 <style lang='less'>
+@import "~@/assets/style/index.less";
 
 .customer-wrap {
   width: 100%;
