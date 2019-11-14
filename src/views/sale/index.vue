@@ -63,6 +63,7 @@
 
     mounted() {
         //
+        console.log(1235)
     }
 
     // 初始化函数
