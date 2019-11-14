@@ -18,6 +18,24 @@ const asyncRoutes: RouteConfig[] = [
       barindex: 1,
       title: 'intermediary'
     }
+  }, {
+    path: '/executionAmount',
+    name: 'executionAmount',
+    components: {
+      default: () => import(/* webpackChunkName: "executionAmount" */ '@/views/sale/executionAmount.vue')
+    }
+  }, {
+    path: '/royalty',
+    name: 'royalty',
+    components: {
+      default: () => import(/* webpackChunkName: "royalty" */ '@/views/sale/royalty.vue')
+    }
+  }, {
+    path: '/analysis',
+    name: 'analysis',
+    components: {
+      default: () => import(/* webpackChunkName: "analysis" */ '@/views/sale/analysis.vue')
+    }
   },
   {
     path: '/intermediary',
