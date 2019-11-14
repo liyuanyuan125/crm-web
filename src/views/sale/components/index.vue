@@ -26,7 +26,7 @@
       }
 
     }
-  </script>
+</script>
 
   <style lang="less" scoped>
     .sale-scoped {
