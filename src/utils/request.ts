@@ -7,12 +7,23 @@ import axios, { AxiosResponse, AxiosRequestConfig } from 'axios'
 import { Toast } from 'vant'
 import requestConfig, { conmomPrams } from '@/service/urlconfig'
 import router from '../router'
+import { AjaxResult } from '../types'
 
 declare type Methods = 'GET' | 'OPTIONS' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'CONNECT'
 declare interface Datas {
   method?: Methods
   [key: string]: any
 }
+
+// 确保最终的数据，始终有值
+const perfectData = ({ code, data, msg }: any = {}) => {
+  return {
+    code,
+    data: data || {},
+    msg: msg || '',
+  } as AjaxResult
+}
+
 const baseURL = process.env.NODE_ENV === 'production' ? process.env.VUE_APP_BASE_API : location.origin
 // TODO 需要商讨token方式，真实token替换该硬编码
 const token = localStorage.getItem('accesstoken')
@@ -48,7 +59,7 @@ class HttpRequest {
         this.destroy(url)
       }
       const { data, status } = res
-      if (status === 200 && data && data.code === 0) { return data } // 请求成功
+      if (status === 200 && data && data.code === 0) { return perfectData(data) } // 请求成功
       return requestFail(res) // 失败回调
     }, (error: any) => {
       if (url) {

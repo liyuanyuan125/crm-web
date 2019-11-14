@@ -4,7 +4,8 @@
  * @param {string} title 页面标题
  */
 import { RouteConfig } from 'vue-router'
-const Tabbar = () => import(/* webpackChunkName: "tabbar" */ '@/components/baseTabbar')
+import Tabbar from '@/components/baseTabbar'
+// const Tabbar = () => import(/* webpackChunkName: "tabbar" */ '@/components/baseTabbar')
 const asyncRoutes: RouteConfig[] = [
   {
     path: '/sale',
@@ -12,6 +13,10 @@ const asyncRoutes: RouteConfig[] = [
     components: {
       default: () => import(/* webpackChunkName: "sale" */ '@/views/sale/index.vue'),
       tabbar: Tabbar
+    },
+    meta: {
+      barindex: 1,
+      title: 'intermediary'
     }
   }, {
     path: '/executionAmount',
@@ -40,7 +45,7 @@ const asyncRoutes: RouteConfig[] = [
       tabbar: Tabbar
     },
     meta: {
-      icon: '',
+      barindex: 2,
       title: 'intermediary'
     }
   },
@@ -52,10 +57,10 @@ const asyncRoutes: RouteConfig[] = [
       tabbar: Tabbar
     },
     meta: {
-      icon: '',
+      barindex: 3,
       title: 'my'
     }
-  },
+  }
 ]
 
 export default asyncRoutes

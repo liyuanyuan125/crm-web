@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import User, { UserState } from './modules/user'
+import { UserState } from './modules/user'
+import { BarState } from './modules/bar'
 
 
 Vue.use(Vuex)
 
 export interface RootState {
-  user: UserState
+  user: UserState,
+  bar: BarState
 }
 
 export default new Vuex.Store<RootState>({})

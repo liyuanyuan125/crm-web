@@ -5,7 +5,7 @@
           <van-tabbar-item
               v-for='(item, index) in tabbars'
               :key='index'
-              :to='(item.name)'
+              :to='item.name'
               :icon='item.icon'
           >
           {{item.title}}
@@ -18,6 +18,7 @@
   import { Component, Vue, Prop } from 'vue-property-decorator'
   import { Tabbar, TabbarItem } from 'vant'
   import { BaseTabbarData } from './types'
+  import { BarModule } from '@/store/modules/bar'
 
   @Component({
     components: {
@@ -29,7 +30,7 @@
     // prop
     @Prop({ required: false, default: ''}) name!: string
 
-    active = 0
+    active = BarModule.barIndex
 
     tabbars: BaseTabbarData[] = [
       {

@@ -1,13 +1,8 @@
 @font-face {
   font-family: 'iconfont';
   src: url('//at.alicdn.com/t/font_1504897_jyf3q141ybk.eot');
-  src: url('//at.alicdn.com/t/font_1504897_jyf3q141ybk.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1504897_jyf3q141ybk.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1504897_jyf3q141ybk.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1504897_jyf3q141ybk.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1504897_jyf3q141ybk.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_1504897_jyf3q141ybk.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_1504897_jyf3q141ybk.woff2') format('woff2'), url('//at.alicdn.com/t/font_1504897_jyf3q141ybk.woff') format('woff'), url('//at.alicdn.com/t/font_1504897_jyf3q141ybk.ttf') format('truetype'), url('//at.alicdn.com/t/font_1504897_jyf3q141ybk.svg#iconfont') format('svg');
 }
-
 .iconfont {
   font-family: "iconfont" !important;
   font-size: 16px;
@@ -15,24 +10,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .iconarrow-down:before {
   content: "\e6eb";
 }
-
 .iconarrow-right:before {
   content: "\e6ec";
 }
-
 .iconarrow-up:before {
   content: "\e6ee";
 }
-
 .iconarrow-lift:before {
   content: "\e6ed";
 }
-
 .iconclose:before {
   content: "\e6f0";
 }
-

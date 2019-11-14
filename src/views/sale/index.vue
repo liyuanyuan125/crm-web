@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class="sale-wrap">
         <van-nav-bar title="标题" fixed></van-nav-bar>
         <div class="sale-view-main">
@@ -17,6 +18,11 @@
         </div>
     
     </div>
+=======
+  <div class="sale-wrap">
+      {{data.pageName+'index'}}
+  </div>
+>>>>>>> 04dc15e17ddab44370803f42eafc383ac45db735
 </template>
 
 <script lang='ts'>
@@ -82,7 +88,6 @@
 </script>
 
 <style lang='less'>
-@import "~@/assets/style/index.less";
 
 .sale-wrap {
     width: 100%;
