@@ -15,16 +15,10 @@ module.exports = {
 
   css: {
     loaderOptions: {
-      postcss: {
-        plugins: [
-          autoprefixer(),
-          pxtorem({
-            rootValue: 37.5,
-            propList: ['*']
-          })
-        ]
-      },
       less: {
+        globalVars: {
+          'hack': `true; @import "${path.join(__dirname, './src/assets/style/index.less')}";`
+        },
         modifyVars: {
           'hack': `true; @import "${path.join(__dirname, './src/assets/style/vant-theme.less')}";`
         }
@@ -33,8 +27,8 @@ module.exports = {
   },
 
   devServer: {
-    host: 'fdev.aiads-dev.com',
-    disableHostCheck: true,
+    // host: 'fdev.aiads-dev.com',
+    // disableHostCheck: true,
     proxy: process.env.VUE_APP_ISMOCK === 'true' ? {
       [process.env.VUE_APP_BASE_API]: {
         target: 'http://localhost:8000/',

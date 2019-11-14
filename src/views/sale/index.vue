@@ -1,6 +1,6 @@
 <template>
   <div class="sale-wrap">
-      {{data.pageName}}
+      {{data.pageName+'index'}}
   </div>
 </template>
 
@@ -42,7 +42,6 @@
 </script>
 
 <style lang='less'>
-@import "~@/assets/style/index.less";
 
 .sale-wrap {
   width: 100%;

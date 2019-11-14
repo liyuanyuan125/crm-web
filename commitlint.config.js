@@ -10,7 +10,8 @@ module.exports = {
                 "chore",    // Other changes that don't modify src or test files. 改变构建流程、或者增加依赖库、工具等
                 "feat",     // Adds a new feature. 新增feature
                 "fix",      // Solves a bug. 修复bug
-                "merge",    // Merge branch ? of ?.
+                "merge",    // 仅进行分支合并.
+                "improvement",    // 用于对当前实现进行改进而没有添加新功能或修复错误的提交.
                 "perf",     // Improves performance. 优化相关，比如提升性能、体验
                 "refactor", // Rewrites code without feature, performance or bug changes. 代码重构，没有加新功能或者修复bug
                 "revert",    // Reverts a previous commit. 回滚到上一个版本                
