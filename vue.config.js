@@ -28,11 +28,7 @@ module.exports = {
 
   devServer: {
     // host: 'fdev.aiads-dev.com',
-<<<<<<< HEAD
-    disableHostCheck: true,
-=======
     // disableHostCheck: true,
->>>>>>> 04dc15e17ddab44370803f42eafc383ac45db735
     proxy: process.env.VUE_APP_ISMOCK === 'true' ? {
       [process.env.VUE_APP_BASE_API]: {
         target: 'http://localhost:8000/',
