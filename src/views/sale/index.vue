@@ -26,9 +26,6 @@
     import { NavBar , DropdownMenu , DropdownItem } from 'vant'
     import Cheaklist from './components/checklist'
 
-    // import {  } from '@/service/api/sale'
-    // import {  } from '@/components' // 全局公共组件
-    // import { Index } from './components' // 业务组件
 
     @Component({
         components: {
@@ -80,7 +77,7 @@
 }
 </script>
 
-<style lang='less'>
+<style lang='less' scoped >
 
 .sale-wrap {
     width: 100%;

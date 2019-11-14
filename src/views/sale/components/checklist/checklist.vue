@@ -17,7 +17,6 @@ import { Component, Vue, Prop , Watch} from 'vue-property-decorator'
 import Examinationblock from './examinationblock.vue'
 import { PullRefresh , List } from 'vant'
 import {CheaklistData} from './type'
-// import {  } from '@/service/api/sale' // API 请求
 
   @Component({
     components: {

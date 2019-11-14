@@ -16,7 +16,6 @@
 
 <script lang="ts">
     import { Component, Vue, Prop } from 'vue-property-decorator'
-    // import {  } from '@/service/api/sale' // API 请求
 
     @Component({})
     export default class Examinationblock extends Vue {
