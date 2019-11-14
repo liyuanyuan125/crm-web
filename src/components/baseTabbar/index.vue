@@ -1,7 +1,7 @@
 <template>
     <div>
       <router-view />
-      <van-tabbar v-model="active">
+      <van-tabbar v-model="active" active-color="#07c160" inactive-color="#999" route>
           <van-tabbar-item
               v-for='(item, index) in tabbars'
               :key='index'
