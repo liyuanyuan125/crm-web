@@ -5,7 +5,7 @@
         </div>
         <div class="ex-view-label">
             <div class="width50">考核指标</div>
-            <div  class="width50">指标完成</div>
+            <div  class="width50 nowrap" >指标完成</div>
         </div>
         <div class="ex-view-label">
             <router-link   class="width50" :to="editRoute('executionAmount')">实际执行额</router-link>
@@ -51,7 +51,10 @@
     }
     .examinationblock-view {
         width: 100%;
-        height: 200px;
+        height: 90px;
+        border-top: 1px solid #ccc;
+        padding: 15px 10px;
+
     }
     .ex-view-label{
         height: 30px;
@@ -59,4 +62,5 @@
         align-items: center;
 
     }
+    
 </style>
