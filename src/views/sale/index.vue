@@ -63,7 +63,6 @@
 
     mounted() {
         //
-        console.log(1235)
     }
 
     // 初始化函数
@@ -99,6 +98,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 40px;
 }
 .sale-view-information{
     display: flex;
