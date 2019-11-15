@@ -1,9 +1,11 @@
 <template>
   <div class="baseNavbar-scoped">
-    <van-nav-bar :title="title" left-text="返回" left-arrow>
+    <van-nav-bar :title="title" left-text="返回" left-arrow @click-left="onClickLeft">
       <template slot="right">
-        <span @click="test">测试</span>
-        <span @click="test2">demo</span>
+        <div class="menustyle">
+          <img @click="search" src="@/assets/image/common/search.svg"/>
+          <img @click="addCustom" src="@/assets/image/common/add.svg">
+        </div>
       </template>
     </van-nav-bar>
   </div>
@@ -40,11 +42,15 @@
       //
     }
 
-    test() {
-      this.$toast('我是测试一')
+    search() {
+      this.$router.push({name: 'custom-search'})
     }
 
-    test2() {
+    onClickLeft() {
+      this.$router.go(-1)
+    }
+
+    addCustom() {
       this.$toast('我是测试二')
     }
 
@@ -54,6 +60,19 @@
 <style lang="less" scoped>
   .baseNavbar-scoped {
     width: 100%;
+  }
+  .menustyle {
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & > img {
+      width: 22px;
+      height: 22px;
+      &:last-child {
+        margin-left: 30px;
+      }
+    }
   }
 </style>
 

@@ -1,5 +1,5 @@
 import Api from '@/utils/request'
 
-export const getData = (query: any) => {
-  return Api.getData('POST', query)
+export const getCustomList = (query: any) => {
+  return Api.getCustomList(query)
 }

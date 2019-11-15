@@ -11,7 +11,7 @@ export const conmomPrams: any = {
  * 请求url配置
  */
 export default {
-  getData: {url: '/basis/calendars', method: 'GET'},
+  getCustomList: {url: '/basis/calendars', method: 'GET'},
   login: {url: '/login/login', method: 'POST'}
 }
 
