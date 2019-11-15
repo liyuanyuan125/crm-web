@@ -49,7 +49,7 @@
       const username = this.form.username
       const password = this.form.password
 
-      if ((!username && !password) || !username) {
+      if (!username) {
         this.errorMess = '请输入账号'
         return
       } else if (!password) {
@@ -59,7 +59,7 @@
 
       try {
         const { data } = await login(this.form)
-        this.$router.push('/')
+
         localStorage.setItem('accesstoken', data.token)
         // 将用户信息存入到store
         const items: any = {
@@ -71,6 +71,7 @@
         }
         UserModule.SET_USER(items)
 
+        this.$router.push('/')
       } catch (ex) {
         this.$toast(ex)
       }
