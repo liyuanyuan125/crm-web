@@ -4,8 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const betterProgress = require('better-webpack-progress');
 const webpack = require('webpack');
 const tsImportPluginFactory = require('ts-import-plugin');
-const autoprefixer = require('autoprefixer');
-const pxtorem = require('postcss-pxtorem');
 
 const resolve = dir => path.join(__dirname, 'src', dir)
 
@@ -20,7 +18,7 @@ module.exports = {
           'hack': `true; @import "${path.join(__dirname, './src/assets/style/index.less')}";`
         },
         modifyVars: {
-          'hack': `true; @import "${path.join(__dirname, './src/assets/style/vant-theme.less')}";`
+          'hack': `true; @import "${path.join(__dirname, './src/assets/style/rewritevant.less')}";`
         }
       }
     }

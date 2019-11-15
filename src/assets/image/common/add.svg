@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>add</title>
+    <desc>Created with Sketch.</desc>
+    <g id="客户管理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="报告列表" transform="translate(-676.000000, -62.000000)">
+            <g id="top">
+                <g id="add" transform="translate(676.000000, 62.000000)">
+                    <path d="M20,19 L20,4.99970728 C20,3.89529944 20.8877296,3 22,3 C23.1045695,3 24,3.88989258 24,4.99970728 L24,19 L38.0002927,19 C39.1047006,19 40,19.8877296 40,21 C40,22.1045695 39.1101074,23 38.0002927,23 L24,23 L24,37.0002927 C24,38.1047006 23.1122704,39 22,39 C20.8954305,39 20,38.1101074 20,37.0002927 L20,23 L5.99970728,23 C4.89529944,23 4,22.1122704 4,21 C4,19.8954305 4.88989258,19 5.99970728,19 L20,19 Z" id="Combined-Shape" fill="#2E2F5A"></path>
+                    <rect id="Rectangle-3-Copy-3" x="0" y="0" width="44" height="44"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,7 +1,9 @@
 <template>
-  <div class="baseLoading-scoped">
-    <div class="double-bounce1"></div>
-    <div class="double-bounce2"></div>
+  <div class="baseLoading-warp">
+    <div class="baseLoading-scoped">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
+    </div>
   </div>
 </template>
 
@@ -35,9 +37,15 @@
 </script>
 
 <style lang="less" scoped>
+  .baseLoading-warp {
+    width: 100%;
+    height: 100vh;
+    background: @main-background;
+  }
   .baseLoading-scoped {
   width: 60px;
   height: 60px;
+  
  
   position: absolute;
   top: 40%;
@@ -49,7 +57,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: @main-color;
+  background-color: @main-blue;
   opacity: 0.6;
   position: absolute;
   top: 0;

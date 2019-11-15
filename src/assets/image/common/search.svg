@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>筛选</title>
+    <desc>Created with Sketch.</desc>
+    <g id="客户管理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="报告列表" transform="translate(-572.000000, -62.000000)" stroke="#2E2F5A" stroke-width="4">
+            <g id="top">
+                <g id="筛选" transform="translate(572.000000, 62.000000)">
+                    <path d="M26,22 L38.5994988,8.64764842 C38.9571852,8.22684095 38.9060154,7.59574703 38.4852079,7.23806068 C38.3044074,7.0843802 38.0748495,7 37.8375595,7 L22,7 L6.16244047,7 C5.61015573,7 5.16244047,7.44771525 5.16244047,8 C5.16244047,8.23728998 5.24682068,8.46684785 5.40050116,8.64764842 L18,22 M18,34 L18,22 M26,22 L26.0325241,40" id="形状结合"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
