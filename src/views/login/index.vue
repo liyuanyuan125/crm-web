@@ -1,65 +1,116 @@
 <template>
   <div class="login-wrap">
         <LoginHeader></LoginHeader>
-        <van-button size="large" type="info" @click="userLogin">登录</van-button>
+        <div class="login-form">
+          <van-field v-model="form.username" placeholder="请输入账号" ref="username" label="账号"
+            required  maxlength="30" />
+          <van-field v-model="form.password" placeholder="请输入密码" label="密码" 
+            required type="password" maxlength="30"/>
+           <p class="error-message">{{errorMess}}</p>
+          <van-checkbox class="login-check" v-model="form.check">7日免登录</van-checkbox>
+          <van-button size="large" type="info" class="logi-submit" @click="userLogin">登录</van-button>
+        </div>
   </div>
 </template>
 
 <script lang='ts'>
-    import { Component, Vue } from 'vue-property-decorator'
-    import { LoginData } from './types'
-    import { UserModule } from '@/store/modules/user'
-    import LoginHeader from './components/login-header.vue'
-    import { Button } from 'vant'
+  import { Component, Vue } from 'vue-property-decorator'
+  import { LoginData } from './types'
+  import { Button, Cell, CellGroup, Field, Checkbox} from 'vant'
+  import { UserModule } from '@/store/modules/user'
+  import LoginHeader from './components/login-header.vue'
+  import { login } from '@/service/api/login'
 
-    @Component({
-        components: {
-            LoginHeader,
-            [Button.name]: Button
-        }
-    })
-    export default class Main extends Vue {
+  @Component({
+    components: {
+      LoginHeader,
+      [Button.name]: Button,
+      [Field.name]: Field,
+      [Cell.name]: Cell,
+      [CellGroup.name]: CellGroup,
+      [Checkbox.name]: Checkbox
+    }
+  })
 
-    // data
-    data: LoginData = {
-        pageName: 'login'
+  export default class Main extends Vue {
+    form: any = {
+      username: '',
+      password: '',
+      check: false
+    }
+
+    errorMess = ''
+
+    mounted() {
+      (this.$refs.username as any).focus()
     }
 
     async userLogin() {
-        // await UserModule.Login({
-        //     username: 'bingbing',
-        //     password: '123456'
-        // })
-        // this.$router.push('/')
-        localStorage.setItem('accesstoken', '123123')
+      const username = this.form.username
+      const password = this.form.password
+
+      if ((!username && !password) || !username) {
+        this.errorMess = '请输入账号'
+        return
+      } else if (!password) {
+        this.errorMess = '请输入密码'
+        return
+      }
+
+      try {
+        const { data } = await login(this.form)
         this.$router.push('/')
+        localStorage.setItem('accesstoken', data.token)
+        // 将用户信息存入到store
+        const items: any = {
+          id: 1,
+          username: 'xxx',
+          tel: '12345677',
+          email: 'xxxxxx@xxxx',
+          token: 'xxxxxxxxxxxx'
+        }
+        UserModule.SET_USER(items)
+
+      } catch (ex) {
+        this.$toast(ex)
+      }
     }
-
-    created() {
-        //
-    }
-
-    activated() {
-        //
-    }
-
-    mounted() {
-
-    }
-
-    // 初始化函数
-    init() {
-        //
-    }
-
-}
+  }
 </script>
 
 <style lang='less'>
 
-.login-wrap {
-  width: 100%;
-  margin: 60px auto;
-  text-align: center;
+.van-cell--required::before {
+  content: '',
+}
+.van-cell:not(:last-child)::after {
+  left: 0;
+}
+
+.login-form {
+  font-size: 14px;
+  padding: 0 30px 30px;
+  .van-cell {
+    font-size: 14px;
+    padding: 10px 0px;
+  }
+  .error-message {
+    font-size: 11px;
+    color: #ee0a24;
+    height: 15px;
+    padding-top: 3px;
+  }
+  .van-field__label {
+    width: 50px;
+  }
+  .logi-submit {
+    margin: 30px 0;
+  }
+  .van-checkbox {
+    padding-top: 20px;
+    .van-checkbox__icon {
+      font-size: 14px;
+    }
+  }
 }
 </style>
