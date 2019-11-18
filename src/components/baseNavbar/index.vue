@@ -1,6 +1,6 @@
 <template>
   <div class="baseNavbar-scoped">
-    <van-nav-bar :title="title" :left-arrow="showLeft" @click-left="onClickLeft">
+    <van-nav-bar :title="title" :left-arrow="showLeft" :border="false" @click-left="onClickLeft">
       <template v-if="barTemplate === 'custom'" slot="right">
         <div class="menustyle">
           <router-link :to="{name: 'custom-search'}" class="search" tag="div"></router-link>
