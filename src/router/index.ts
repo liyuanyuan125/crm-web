@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router, { RouteConfig } from 'vue-router'
 import asyncLoader from '@/utils/asyncLoader'
 import asyncRoutes from './modules/asyncRoute'
-import { BarModule } from '@/store/modules/bar'
+import customRoutes from './modules/custom'
+import Tabbar from '@/components/baseTabbar'
+import Navbar from '@/components/baseNavbar'
 
 Vue.use(Router)
 
@@ -12,7 +14,12 @@ export const constantRoutes: RouteConfig[] = [
     name: 'customer',
     components: {
       default: asyncLoader('customer/index.vue'),
-      tabbar: () => import(/* webpackChunkName: "Tabbar" */ '@/components/baseTabbar')
+      tabbar: Tabbar,
+      navbar: Navbar
+    },
+    meta: {
+      barindex: 0,
+      title: '客户管理'
     }
   },
   {
@@ -42,7 +49,8 @@ export const constantRoutes: RouteConfig[] = [
       title: '401'
     }
   },
- ...asyncRoutes
+ ...asyncRoutes,
+ ...customRoutes
 ]
 
 const router = new Router({
@@ -55,9 +63,6 @@ const LOGIN_PAGE_NAME = 'login'
 
 // 跳转之前
 router.beforeEach((to, from, next) => {
-  if (to && to.meta && to.meta.barindex) {
-    BarModule.setBar(to.meta.barindex)
-  }
   const token = localStorage.getItem('accesstoken')
   if (!token && to.name !== LOGIN_PAGE_NAME) {
     // 未登录且要跳转的页面不是登录页

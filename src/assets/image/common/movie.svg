@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="43px" viewBox="0 0 42 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>媒体资源</title>
+    <desc>Created with Sketch.</desc>
+    <g id="客户管理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.9">
+        <g id="组件" transform="translate(-446.000000, -1086.000000)">
+            <g id="bottom" transform="translate(0.000000, 1073.000000)">
+                <g id="电影" transform="translate(446.000000, 14.000000)">
+                    <circle id="Oval" stroke="#333333" stroke-width="3" cx="21" cy="21" r="18.5"></circle>
+                    <path d="M29,23.5 C30.3807119,23.5 31.5,22.3807119 31.5,21 C31.5,19.6192881 30.3807119,18.5 29,18.5 C27.6192881,18.5 26.5,19.6192881 26.5,21 C26.5,22.3807119 27.6192881,23.5 29,23.5 Z M21,31.5 C22.3807119,31.5 23.5,30.3807119 23.5,29 C23.5,27.6192881 22.3807119,26.5 21,26.5 C19.6192881,26.5 18.5,27.6192881 18.5,29 C18.5,30.3807119 19.6192881,31.5 21,31.5 Z M13,23.5 C14.3807119,23.5 15.5,22.3807119 15.5,21 C15.5,19.6192881 14.3807119,18.5 13,18.5 C11.6192881,18.5 10.5,19.6192881 10.5,21 C10.5,22.3807119 11.6192881,23.5 13,23.5 Z M21,15.5 C22.3807119,15.5 23.5,14.3807119 23.5,13 C23.5,11.6192881 22.3807119,10.5 21,10.5 C19.6192881,10.5 18.5,11.6192881 18.5,13 C18.5,14.3807119 19.6192881,15.5 21,15.5 Z" id="Combined-Shape" stroke="#333333" stroke-width="3"></path>
+                    <rect id="Rectangle-6" fill="#333333" x="20" y="38" width="20" height="3" rx="1.5"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

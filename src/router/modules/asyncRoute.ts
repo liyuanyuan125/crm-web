@@ -5,7 +5,7 @@
  */
 import { RouteConfig } from 'vue-router'
 import Tabbar from '@/components/baseTabbar'
-// const Tabbar = () => import(/* webpackChunkName: "tabbar" */ '@/components/baseTabbar')
+
 const asyncRoutes: RouteConfig[] = [
   {
     path: '/sale',

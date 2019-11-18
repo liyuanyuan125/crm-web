@@ -93,10 +93,8 @@ const requestFail = (res: AxiosResponse) => {
     Toast('token失效重新登录')
     return router.replace({ name: 'login' })
   }
-
-  return {
-    err: Toast(res.data.msg || errStr)
-  }
+  Toast(res.data.msg || errStr)
+  return perfectData(res.data)
 }
 
 // 合并axios参数

@@ -1,7 +1,8 @@
 <template>
   <div id="app">
+    <router-view name="navbar" :title="$route.meta.title"></router-view>
     <router-view></router-view>
-    <router-view name="tabbar"></router-view>
+    <router-view name="tabbar" :barindex="$route.meta.barindex"></router-view>
   </div>
 </template>
 

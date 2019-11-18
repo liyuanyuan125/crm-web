@@ -2,8 +2,7 @@
 export interface BaseTabbarData {
   name: string
   title: string
-  normal: string
   active: string
-  icon: string
+  inactive: string
 }
 
