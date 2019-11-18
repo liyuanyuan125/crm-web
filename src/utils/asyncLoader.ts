@@ -13,7 +13,7 @@ export default (chunkPath: string) => {
         resolve(
           import(/* webpackChunkName: "[request]" */ `@/views/${chunkPath}`)
         )
-      }, 1500)
+      }, 1000)
     }),
     loading: spinner,
     error: {

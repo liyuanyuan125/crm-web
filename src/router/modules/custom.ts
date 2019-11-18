@@ -15,14 +15,14 @@ const customRoutes: RouteConfig[] = [
       navbar: Navbar
     },
     meta: {
-      title: '筛选'
+      title: '筛选',
     }
   },
   {
     path: '/custom/add',
     name: 'custom-add',
     components: {
-      default: () => import(/* webpackChunkName: "my" */ '@/views/customer/search.vue'),
+      default: () => import(/* webpackChunkName: "my" */ '@/views/customer/add.vue'),
       navbar: Navbar
     },
     meta: {
