@@ -2,7 +2,7 @@
     <div>
       <router-view />
       <van-tabbar 
-        v-model="barindex"
+        v-model="barindexData"
         active-color="#648CE5"
         inactive-color="#333333">
           <van-tabbar-item
@@ -10,7 +10,7 @@
               :key='index'
               :to='item.name'
           >
-          <span>{{item.title}}</span>
+          <span>{{ item.title }}</span>
           <img
             slot="icon"
             slot-scope="props"
@@ -22,7 +22,7 @@
 </template>
 
 <script lang='ts'>
-  import { Component, Vue, Prop } from 'vue-property-decorator'
+  import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
   import { Tabbar, TabbarItem } from 'vant'
   import { BaseTabbarData } from './types'
 
@@ -34,7 +34,9 @@
   })
   export default class BaseTabbar extends Vue {
     // prop
-    @Prop({ required: false, default: ''}) barindex!: number
+    @Prop({ required: false }) barindex!: number
+
+    barindexData: number = 0
 
     tabbars: BaseTabbarData[] = [
       {
@@ -63,18 +65,10 @@
       }
     ]
 
-    created() {
-      //
-    }
-
-    activated() {
-      //
-    }
-
-    mounted() {
-      //
-    }
-
+    @Watch('barindex', {immediate: true})
+      WatchBarindex(value: number) {
+        this.barindexData = value
+      }
   }
 </script>
 

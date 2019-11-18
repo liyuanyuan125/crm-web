@@ -1,7 +1,14 @@
 <template>
   <div id="app">
-    <router-view name="navbar" :title="$route.meta.title"></router-view>
-    <router-view></router-view>
+    <router-view name="navbar" 
+      :title="$route.meta.title" 
+      :showLeft="$route.meta.showLeft"
+      :barTemplate="$route.meta.barTemplate"
+      ></router-view>
+     <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
     <router-view name="tabbar" :barindex="$route.meta.barindex"></router-view>
   </div>
 </template>

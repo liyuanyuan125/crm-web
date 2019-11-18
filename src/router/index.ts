@@ -2,13 +2,18 @@ import Vue from 'vue'
 import Router, { RouteConfig } from 'vue-router'
 import asyncLoader from '@/utils/asyncLoader'
 import asyncRoutes from './modules/asyncRoute'
+import { MetaConfig } from '@/types'
 import customRoutes from './modules/custom'
 import Tabbar from '@/components/baseTabbar'
 import Navbar from '@/components/baseNavbar'
 
 Vue.use(Router)
 
-export const constantRoutes: RouteConfig[] = [
+interface RouteConfigRewrite extends RouteConfig {
+  meta?: MetaConfig
+}
+
+export const constantRoutes: RouteConfigRewrite[] = [
   {
     path: '/',
     name: 'customer',
@@ -19,7 +24,9 @@ export const constantRoutes: RouteConfig[] = [
     },
     meta: {
       barindex: 0,
-      title: '客户管理'
+      title: '客户管理',
+      showLeft: false,
+      barTemplate: 'custom'
     }
   },
   {
