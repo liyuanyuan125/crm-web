@@ -1,10 +1,16 @@
 <template>
   <div class="baseNavbar-scoped">
-    <van-nav-bar :title="title" left-text="返回" left-arrow @click-left="onClickLeft">
-      <template slot="right">
+    <van-nav-bar :title="title" :left-arrow="showLeft" @click-left="onClickLeft">
+      <template v-if="barTemplate === 'custom'" slot="right">
         <div class="menustyle">
-          <img @click="search" src="@/assets/image/common/search.svg"/>
-          <img @click="addCustom" src="@/assets/image/common/add.svg">
+          <router-link :to="{name: 'custom-search'}" class="search" tag="div"></router-link>
+          <router-link :to="{name: 'custom-add'}" class="addcustom" tag="div"></router-link>
+        </div>
+      </template>
+      <template v-else-if="barTemplate === 'intermediary'" slot="right">
+        <div class="menustyle">
+          <router-link :to="{name: 'my'}" class="search" tag="div"></router-link>
+          <router-link to="/my" class="constrast" tag="div">对比</router-link>
         </div>
       </template>
     </van-nav-bar>
@@ -25,33 +31,17 @@
     // prop
     @Prop({ required: false, default: '鲸鱼CRM'}) title!: string
 
+    @Prop({ required: false, default: true}) showLeft!: boolean
+
+    @Prop({ required: false, default: ''}) barTemplate!: string
+
     // data
     data: BaseNavbarData = {
       componentName: 'baseNavbar'
     }
 
-    created() {
-      //
-    }
-
-    activated() {
-      //
-    }
-
-    mounted() {
-      //
-    }
-
-    search() {
-      this.$router.push({name: 'custom-search'})
-    }
-
     onClickLeft() {
       this.$router.go(-1)
-    }
-
-    addCustom() {
-      this.$toast('我是测试二')
     }
 
   }
@@ -66,12 +56,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    & > img {
+    .search, .addcustom {
       width: 22px;
       height: 22px;
-      &:last-child {
-        margin-left: 30px;
-      }
+    }
+    .search {
+      background: url('~@/assets/image/common/search.svg') no-repeat;
+      background-size: 22px 22px;
+    }
+    .addcustom {
+      background: url('~@/assets/image/common/add.svg') no-repeat;
+      background-size: 22px 22px;
+      margin-left: 30px;
+    }
+    .constrast {
+      margin-left: 22px;
     }
   }
 </style>
