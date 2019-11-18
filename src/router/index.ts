@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router, { RouteConfig } from 'vue-router'
 import asyncLoader from '@/utils/asyncLoader'
-import asyncRoutes from './modules/asyncRoute'
 import { MetaConfig } from '@/types'
-import customRoutes from './modules/custom'
+import customRoutes from './modules/customRoute'
+import saleRoutes from './modules/saleRoute'
+import intermediaryRoutes from './modules/intermediaryRoute'
+import myRoutes from './modules/myRoute'
 import Tabbar from '@/components/baseTabbar'
 import Navbar from '@/components/baseNavbar'
 
@@ -56,8 +58,10 @@ export const constantRoutes: RouteConfigRewrite[] = [
       title: '401'
     }
   },
- ...asyncRoutes,
- ...customRoutes
+ ...saleRoutes,
+ ...customRoutes,
+ ...intermediaryRoutes,
+ ...myRoutes
 ]
 
 const router = new Router({

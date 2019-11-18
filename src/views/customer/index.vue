@@ -60,7 +60,6 @@
 
     async demo() {
         let data = await getCustomList({})
-        console.log('datadata', data)
     }
 
 }
