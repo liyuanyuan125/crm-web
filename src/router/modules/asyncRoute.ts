@@ -5,7 +5,6 @@
  */
 import { RouteConfig } from 'vue-router'
 import Tabbar from '@/components/baseTabbar'
-import Navbar from '@/components/baseNavbar'
 
 const asyncRoutes: RouteConfig[] = [
   {
