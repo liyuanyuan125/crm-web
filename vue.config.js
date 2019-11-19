@@ -28,12 +28,12 @@ module.exports = {
     // host: 'fdev.aiads-dev.com',
     // disableHostCheck: true,
     proxy: process.env.VUE_APP_ISMOCK === 'true' ? {
-      [process.env.VUE_APP_BASE_API]: {
+      [process.env.VUE_APP_BASE_API2]: {
         target: 'http://localhost:8000/',
         changeOrigin: true,
         ws: true,
         pathRewrite: {
-          ['^' + process.env.VUE_APP_BASE_API]: ''
+          ['^' + process.env.VUE_APP_BASE_API2]: ''
         }
       }
     } : false
@@ -72,7 +72,8 @@ module.exports = {
           removeAttributeQuotes: true,
         },
         // 是否使用统计
-        useStats: env == 'prd'
+        useStats: env == 'prd',
+        env: process.env.NODE_ENV
       }])
     })
 
