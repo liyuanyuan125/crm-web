@@ -14,10 +14,8 @@ export interface LoginForm {
 
 // 用户类型
 export interface UserInfo {
-  id: number,
-  name: '',
-  email: '',
-  tel: '',
+  userId: number,
+  username: string,
 }
 
 // 参数一：是否使用动态加载，只有用到当前module才会加载

@@ -14,11 +14,24 @@ const customRoutes: RouteConfig[] = [
     name: 'my',
     components: {
       default: asyncLoader('my/index.vue'),
-      tabbar: Tabbar
+      tabbar: Tabbar,
+      navbar: Navbar
     },
     meta: {
       barindex: 3,
-      title: 'my'
+      title: '我的信息',
+      showLeft: false
+    }
+  },
+  {
+    path: '/my/detail',
+    name: 'my-detail',
+    components: {
+      default: () => import('@/views/my/detail.vue'),
+      navbar: Navbar
+    },
+    meta: {
+      title: '业务区域'
     }
   }
 ]
