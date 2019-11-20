@@ -24,10 +24,9 @@ const perfectData = ({ code, data, msg }: any = {}) => {
   } as AjaxResult
 }
 
-const baseURL = process.env.NODE_ENV === 'production' ? process.env.VUE_APP_BASE_API : location.origin
-// TODO 需要商讨token方式，真实token替换该硬编码
-const token = localStorage.getItem('accesstoken')
-
+const baseURL = process.env.NODE_ENV === 'production'
+? process.env.VUE_APP_BASE_API
+: (process.env.VUE_APP_ISMOCK === 'true' ? location.origin : process.env.VUE_APP_BASE_API)
 class HttpRequest {
   public queue: any // 请求的url集合
   public constructor() {
@@ -89,7 +88,7 @@ class HttpRequest {
 const requestFail = (res: AxiosResponse) => {
   let errStr = '网络繁忙！'
   // token失效重新登录
-  if (res.data.code === 1000001) {
+  if (res.data.code === 401) {
     Toast('token失效重新登录')
     return router.replace({ name: 'login' })
   }
@@ -108,7 +107,6 @@ const conbineOptions = (_opts: any, data: Datas, method: Methods): AxiosRequestC
     ...conmomPrams,
     method: opts.method || data.method || method || 'GET',
     url: `${process.env.VUE_APP_ISMOCK === 'true' ? '/dev-api/' : ''}${opts.url}`,
-    header: { 'user-token': token },
     baseURL
   }
   return options.method !== 'GET' ? Object.assign(options, { data: _data }) : Object.assign(options, { params: _data })

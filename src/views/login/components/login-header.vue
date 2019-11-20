@@ -1,7 +1,7 @@
 <template>
 	<div class="store_header">
 		<div class="store_avatar">
-			<img src="@/assets/image/common/logo.png" alt="logo" width="112" height="76">
+			<img src="@/assets/image/common/logo.png" alt="logo">
 		</div>
 	</div>
 </template>
@@ -19,7 +19,7 @@
       text-align: center;
       padding: 20px 0 46px;
     .store_avatar img {
-      border-radius: 50%;
+      width: 112px;
     }
     .store_name {
       padding-top: 5px;

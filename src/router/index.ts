@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router, { RouteConfig } from 'vue-router'
+import cookie from 'js-cookie'
 import asyncLoader from '@/utils/asyncLoader'
 import { MetaConfig } from '@/types'
 import customRoutes from './modules/customRoute'
@@ -71,10 +72,11 @@ const router = new Router({
 
 // 登陆页面路由 name
 const LOGIN_PAGE_NAME = 'login'
+const KEY_TOKEN = 'token_admin'
 
 // 跳转之前
 router.beforeEach((to, from, next) => {
-  const token = localStorage.getItem('accesstoken')
+  const token = cookie.get(KEY_TOKEN)
   if (!token && to.name !== LOGIN_PAGE_NAME) {
     // 未登录且要跳转的页面不是登录页
     next({

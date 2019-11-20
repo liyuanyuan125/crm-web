@@ -12,6 +12,11 @@
       <strong>鲸鱼CRM系统需要启用 JavaScript 功能，你的浏览器没有开启，请启用后继续</strong>
     </noscript>
     <div id="app"></div>
+    <% if(htmlWebpackPlugin.options.env !== 'production') { %>
+      <script src="https://static.mobike.com/cdn/vconsole/3.0.0/vconsole.min.js?new"></script>
+      <script>var vConsole = new VConsole()</script>
+      <script>console.log(window.location.href)</script>
+    <% } %>
     <!-- built files will be auto injected -->
   </body>
 </html>
