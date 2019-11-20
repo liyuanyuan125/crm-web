@@ -6,11 +6,6 @@ export interface UserState {
     token: string,
     userName: string
 }
-export interface LoginForm {
-  username: string,
-  password: string,
-  check: boolean
-}
 
 // 用户类型
 export interface UserInfo {
