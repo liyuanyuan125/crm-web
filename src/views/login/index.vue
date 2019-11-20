@@ -7,7 +7,6 @@
           <van-field v-model="form.password" placeholder="请输入密码" label="密码" 
             required type="password" maxlength="30"/>
            <p class="error-message">{{errorMess}}</p>
-          <!-- <van-checkbox class="login-check" shape="square" v-model="form.check">7日免登录</van-checkbox> -->
           <van-button size="large" type="info" class="logi-submit" @click="userLogin">登录</van-button>
         </div>
   </div>
@@ -56,16 +55,10 @@
         return
       }
 
-      try {
-        const { data } = await login(this.form)
-
-        // 将用户信息存入到store
-        UserModule.SET_USER(data)
-        // this.$router.push({name: 'customer'})
-        this.$router.push('/')
-      } catch (ex) {
-        this.$toast(ex)
-      }
+      const { data } = await login(this.form)
+      // 将用户信息存入到store
+      UserModule.SET_USER(data)
+      this.$router.push({name: 'customer'})
     }
 
   }
@@ -110,14 +103,5 @@
     background-color: #A5BEF8;
     border: none;
   }
-  // .van-checkbox {
-  //   margin-top: 2px;
-  //   .van-icon {
-  //     width: 18px;
-  //     height: 18px;
-  //     border-radius: 3px;
-  //     border: solid 1px rgba(151, 151, 151, 1);
-  //   }
-  // }
 }
 </style>
