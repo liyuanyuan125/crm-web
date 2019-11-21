@@ -12,7 +12,7 @@ export const conmomPrams: any = {
  */
 export default {
   getCustomList: {url: '/basis/calendars', method: 'GET'},
-  login: {url: '/login/login', method: 'POST'}
+  login: {url: 'authentication/login', method: 'POST'}
 }
 
 

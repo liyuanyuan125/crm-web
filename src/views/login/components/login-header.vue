@@ -1,41 +1,24 @@
 <template>
 	<div class="store_header">
 		<div class="store_avatar">
-			<img src="@/assets/image/common/logo.png" alt="logo" width="190" height="115">
+			<img src="@/assets/image/common/logo.png" alt="logo">
 		</div>
 	</div>
 </template>
 
   <script lang="ts">
     import { Component, Vue, Prop } from 'vue-property-decorator'
-    // import {  } from '@/service/api/login' // API 请求
 
-    @Component({})
-    export default class LoginHeader extends Vue {
-      // prop
-      @Prop({ required: false, default: ''}) name!: string
-
-      created() {
-        //
-      }
-
-      activated() {
-        //
-      }
-
-      mounted() {
-        //
-      }
-
-    }
-  </script>
+    @Component
+    export default class LoginHeader extends Vue {}
+</script>
 
   <style lang="less" scoped>
     .store_header {
       text-align: center;
-      padding: 30px 0;
+      padding: 20px 0 46px;
     .store_avatar img {
-      border-radius: 50%;
+      width: 112px;
     }
     .store_name {
       padding-top: 5px;
