@@ -1,3 +1,10 @@
+import numeral from 'numeral'
+
+const isZero = (n: number | string | null) => {
+  const num = parseInt(n as string, 10)
+  return isNaN(num) || num == 0
+}
+
 /**
  * @description 节流函数
  * @author zhangbing
@@ -35,4 +42,18 @@ export function throttle(func: any, wait: number) {
         }
     }
     return throttled
+}
+
+/**
+ * 将数字的整数部分格式化成千分位，保留完整的小数部分
+ * @param number 数字
+ */
+export function toThousands(number: number | string) {
+  if (isZero(number)) {
+    return ''
+  }
+  const [ , n = '', m = '' ] = String(number).match(/^(\d+)\.?(\d+)?/) || []
+  const thousands = numeral(n).format('0,0')
+  const result = thousands + (m ? `.${m}` : '')
+  return result
 }
