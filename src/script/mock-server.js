@@ -22,7 +22,15 @@ for (var url in mock) {
       res.send(fs.readFileSync(path.resolve(__dirname + './../../src/mock/' + mockFile)))
     }
   })(mockFile))
+
   router.get(url, (function (mockFile) {
+    return function (req, res) {
+      res.setHeader('Content-Type', 'application/json')
+      res.send(fs.readFileSync(path.resolve(__dirname + './../../src/mock/' + mockFile)))
+    }
+  })(mockFile))
+
+  router.put(url, (function (mockFile) {
     return function (req, res) {
       res.setHeader('Content-Type', 'application/json')
       res.send(fs.readFileSync(path.resolve(__dirname + './../../src/mock/' + mockFile)))

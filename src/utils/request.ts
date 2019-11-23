@@ -96,13 +96,26 @@ const requestFail = (res: AxiosResponse) => {
   return perfectData(res.data)
 }
 
+// 匹配restful接口
+const replaceParams = (params: any, opts: any) => {
+  Object.keys(params).forEach(async item => {
+    let reg = new RegExp(`\\{(${item}+?)\\}`)
+      if (reg.test(opts.url)) {
+        opts.url = await opts.url.replace(reg, params[item])
+      }
+  })
+  return opts
+}
+
 // 合并axios参数
 const conbineOptions = (_opts: any, data: Datas, method: Methods): AxiosRequestConfig => {
   let opts = _opts
   if (typeof opts === 'string') {
     opts = { url: opts }
   }
+
   const _data = { ...opts.data, ...data }
+
   const options = {
     ...conmomPrams,
     method: opts.method || data.method || method || 'GET',
@@ -120,7 +133,16 @@ const HTTP = new HttpRequest()
 const API = (() => {
   const apiObj: any = {}
   const fun = (opts: AxiosRequestConfig | string) => {
-    return async ( data = {}, method: Methods = 'GET') => {
+    return async ( data = {params: {}}, constructor = '', method: Methods = 'GET' ) => {
+      // 接口是否含有restful接口
+      let originOpts: AxiosRequestConfig | string
+      if (constructor) {
+        let cloneRequestConfig = JSON.parse(JSON.stringify(requestConfig))
+        originOpts = cloneRequestConfig[constructor]
+        opts = await replaceParams(data.params, originOpts)
+        delete data.params
+      }
+
       const newOpts = conbineOptions(opts, data, method)
       const res = await HTTP.request(newOpts)
       return res
