@@ -85,14 +85,17 @@ class HttpRequest {
 }
 
 // 请求失败
-const requestFail = (res: AxiosResponse) => {
+const requestFail = (res: AxiosResponse, url: string | undefined) => {
   let errStr = '网络繁忙！'
   // token失效重新登录
   if (res.data.code === 401) {
-    Toast('token失效重新登录')
-    return router.replace({ name: 'login' })
+    if (!url || !url.includes('autoLogin')) {
+      Toast('token过期，请重新登录')
+      return router.replace({ name: 'login' })
+    }
+  } else {
+    Toast(res.data.msg || errStr)
   }
-  Toast(res.data.msg || errStr)
   return perfectData(res.data)
 }
 
@@ -140,9 +143,8 @@ const API = (() => {
         let cloneRequestConfig = JSON.parse(JSON.stringify(requestConfig))
         originOpts = cloneRequestConfig[constructor]
         opts = await replaceParams(data.params, originOpts)
-        delete data.params
       }
-
+      delete data.params
       const newOpts = conbineOptions(opts, data, method)
       const res = await HTTP.request(newOpts)
       return res
