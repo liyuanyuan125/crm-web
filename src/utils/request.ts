@@ -59,7 +59,7 @@ class HttpRequest {
       }
       const { data, status } = res
       if (status === 200 && data && data.code === 0) { return perfectData(data) } // 请求成功
-      return requestFail(res) // 失败回调
+      return requestFail(res, url) // 失败回调
     }, (error: any) => {
       if (url) {
         this.destroy(url)
