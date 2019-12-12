@@ -5,7 +5,7 @@ stages:
   - deploy-prd
 
 variables:
-  SERVICE_NAME: iadp-sale-crm-web
+  SERVICE_NAME: iadp-crm-web
 
 
 build-dev:
@@ -56,7 +56,7 @@ package:
   variables:
     GIT_STRATEGY: none
   dependencies: []
-  script: deploy -service $SERVICE_NAME -template web -vars host=sale-crm-wap-web.aiads-dev.com,port=80
+  script: deploy -service $SERVICE_NAME -template web -vars host=crm.aiads-dev.com,port=80
   tags:
     - docker
 
